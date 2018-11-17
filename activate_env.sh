@@ -1,3 +1,3 @@
 #!/bin/bash
 
-source bfenv/bin/activate
+source ~/bigfoot_webserver/bfenv/bin/activate
