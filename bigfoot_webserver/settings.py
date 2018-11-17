@@ -25,7 +25,7 @@ SECRET_KEY = 'po+)po)&_rql%vj+2e@q6u6r4w(ora_gbrm8z0r%9i0kg#8u_f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.81','192.168.0.160']
 
 
 # Application definition
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'bigfoot_webserver.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
