@@ -21,5 +21,7 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', views.index, name='home'),
-    path('CallBigfoot', views.send_call, name='Call')
+    path('CallBigfoot1', views.send_call1, name='Call'),
+    path('CallBigfoot2', views.send_call2, name='Call'),
+    path('CallBigfoot3', views.send_call3, name='Call')
 ]

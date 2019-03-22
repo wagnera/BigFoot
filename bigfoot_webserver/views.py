@@ -6,18 +6,40 @@ import threading
 
 ser=serial.Serial('/dev/ttyUSB0',57600)
 ser.rtscts=True
-ser.write('+++'.encode('ascii'))
+#ser.write('+++'.encode('ascii'))
 mutex=threading.Lock()
 
 
 def index(request):
 	return render(request,'bigfoot.html')
 
-def send_call(request):
-	thread=threading.Thread(target=write_gpio_high,args=())
-	thread.daemon=True
-	thread.start()
+def send_call1(request):
+	#thread=threading.Thread(target=write_gpio_high,args=())
+	#thread.daemon=True
+	#thread.start()
+	write_serial_cmd(1)
 	return render(request,'bigfoot.html')
+
+def send_call2(request):
+	#thread=threading.Thread(target=write_gpio_high,args=())
+	#thread.daemon=True
+	#thread.start()
+	write_serial_cmd(2)
+	return render(request,'bigfoot.html')
+
+def send_call3(request):
+	#thread=threading.Thread(target=write_gpio_high,args=())
+	#thread.daemon=True
+	#thread.start()
+	write_serial_cmd(3)
+	return render(request,'bigfoot.html')
+
+def write_serial_cmd(cmd):
+	print("Writing Test to serial")
+	packet = ('big' + str(cmd) + '\n').encode('ascii')
+	print(packet)
+	ser.write(packet)
+
 
 def write_gpio_high():
 	mutex.acquire()
